@@ -1,5 +1,7 @@
 # 99lib-api
 
+    npx babel-node tools/makebook.js [ID]
+
 ## 描述
 
 [九九藏书网](https://www.99lib.net "九九藏书网")是一个专注于提供出版书籍阅读的网站，其提供的内容较为精良，但是因为官方并不提供 Android 客户端，亦没有相关的 Api 接口，所以自己使用 Nodejs 简单的实现了一个仅仅包含最基本功能的简陋 Api，来方便令其它 App 获取其内容。
