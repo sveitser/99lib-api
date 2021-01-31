@@ -3,6 +3,8 @@ import path from 'path'
 import cheerio from 'cheerio'
 import decode from '../lib/decode'
 import save from './save'
+import { exec } from 'child_process'
+
 
 /**
  * read the index.html and return a list of chapiters
@@ -104,6 +106,18 @@ save(bookId, 'index.htm')
         return meta.title
     })
     .then((title) => {
-        console.log("Now build the epub file with pandoc")
-        console.log("pandoc -s --metadata-file " + title + ".yml -o " + title + ".epub " + title + ".md ")
+      console.log("Now building the epub file with pandoc ...")
+      const cmd = "pandoc -s --metadata-file " + title + ".yml -o " + title + ".epub " + title + ".md "
+      console.log(cmd)
+      exec(cmd, (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+      })
     })
