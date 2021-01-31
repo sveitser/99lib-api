@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 import path from 'path'
 
-const base = "https://99lib.net/book/"
+const base = "https://99csw.com/book/"
 
 function save(bookId, file) {
 
