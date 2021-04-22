@@ -107,7 +107,7 @@ save(bookId, 'index.htm')
     })
     .then((title) => {
       console.log("Now building the epub file with pandoc ...")
-      const cmd = "pandoc -s --metadata-file " + title + ".yml -o " + title + ".epub " + title + ".md "
+      const cmd = "pandoc -s --metadata-file '" + title + ".yml' -o '" + title + ".epub' '" + title + ".md' "
       console.log(cmd)
       exec(cmd, (error, stdout, stderr) => {
         if (error) {
